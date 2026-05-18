@@ -1,6 +1,5 @@
 <?php
-// index.php
-// Home page only. Login and dashboards are handled by login.php, login_operations.php and Dashboard.php.
+$hospital_phone = "+880 1234 567890";
 ?>
 
 <!DOCTYPE html>
@@ -10,22 +9,15 @@
     <title>CareConnect Hospital | Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/index.css">
 </head>
 
 <body>
 
-<!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm">
     <div class="container">
 
@@ -76,7 +68,6 @@
                     <a class="nav-link" href="#contact">Contact</a>
                 </li>
 
-                <!-- Login Dropdown -->
                 <li class="nav-item dropdown ms-lg-3">
                     <button 
                         class="btn btn-outline-primary dropdown-toggle"
@@ -113,7 +104,6 @@
                     </a>
                 </li>
 
-                <!-- Search Dropdown -->
                 <li class="nav-item dropdown ms-lg-2 mt-2 mt-lg-0">
                     <button 
                         class="btn btn-outline-secondary dropdown-toggle"
@@ -154,7 +144,6 @@
     </div>
 </nav>
 
-<!-- Hero Section -->
 <section class="hero" id="home">
     <div class="container">
         <div class="row">
@@ -197,12 +186,16 @@
                     </div>
 
                     <div class="col-md-6 col-lg-3">
-                        <a href="login.php?role=patient" class="text-decoration-none">
+                        <button 
+                            type="button"
+                            onclick="showTeleNumber()"
+                            class="w-100 border-0 bg-transparent p-0"
+                        >
                             <div class="bg-white text-dark rounded-4 p-3 text-center shadow-sm h-100">
                                 <i class="bi bi-camera-video fs-2 text-primary"></i>
                                 <h6 class="mt-2 mb-0">Tele Online</h6>
                             </div>
-                        </a>
+                        </button>
                     </div>
 
                 </div>
@@ -212,7 +205,6 @@
     </div>
 </section>
 
-<!-- Services -->
 <section id="services">
     <div class="container text-center">
 
@@ -250,9 +242,14 @@
                     <i class="bi bi-camera-video fs-1 text-primary"></i>
                     <h5 class="mt-3">Telemedicine</h5>
                     <p>Consult with doctors remotely from your home.</p>
-                    <a href="login.php?role=patient" class="btn btn-outline-primary mt-auto">
+
+                    <button 
+                        type="button"
+                        onclick="showTeleNumber()"
+                        class="btn btn-outline-primary mt-auto"
+                    >
                         Get Started
-                    </a>
+                    </button>
                 </div>
             </div>
 
@@ -260,7 +257,6 @@
     </div>
 </section>
 
-<!-- Stats -->
 <section class="stats py-5">
     <div class="container">
         <div class="row text-center">
@@ -289,7 +285,6 @@
     </div>
 </section>
 
-<!-- Our Heroes -->
 <section id="heroes">
     <div class="container">
 
@@ -373,7 +368,6 @@
     </div>
 </section>
 
-<!-- About -->
 <section id="about" style="background: #f7fbfc;">
     <div class="container text-center">
         <h2 class="section-title">About Us</h2>
@@ -389,7 +383,6 @@
     </div>
 </section>
 
-<!-- Map Section -->
 <section class="map-section py-5">
     <div class="container text-center">
 
@@ -408,7 +401,6 @@
     </div>
 </section>
 
-<!-- Footer -->
 <footer id="contact">
     <div class="container">
 
@@ -431,7 +423,7 @@
 
             <div class="col-lg-4">
                 <h5>Contact Info</h5>
-                <p><i class="bi bi-telephone"></i> +880 1234 567890</p>
+                <p><i class="bi bi-telephone"></i> <?= htmlspecialchars($hospital_phone); ?></p>
                 <p><i class="bi bi-envelope"></i> info@careconnect.com</p>
                 <p><i class="bi bi-clock"></i> Open 24/7</p>
             </div>
@@ -447,7 +439,12 @@
     </div>
 </footer>
 
-<!-- Bootstrap JS Bundle -->
+<script>
+function showTeleNumber() {
+    alert("For Tele Online service, please call: <?= htmlspecialchars($hospital_phone); ?>");
+}
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
