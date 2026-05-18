@@ -38,7 +38,12 @@ VALUES
 (4, 'Nahid Hossain', 'nahid.patient@gmail.com', 'Nahid@123', '01710000002', '01710000002', 'patient', '2006-02-12', NULL, 1, 'active'),
 (5, 'Dr. Fahmida Jannat', 'fahmida.doctor@gmail.com', 'Doctor@123', '01710000003', '01710000003', 'doctor', '1990-06-14', NULL, 1, 'active'),
 (6, 'Dr. Rahman Karim', 'rahman.doctor@gmail.com', 'Doctor@123', '01710000004', '01710000004', 'doctor', '1988-08-20', NULL, 1, 'active'),
-(7, 'System Admin', 'admin@gmail.com', 'Admin@123', '01700000000', '01700000000', 'admin', '1990-01-01', NULL, 1, 'active');
+(7, 'System Admin', 'admin@gmail.com', 'Admin@123', '01700000000', '01700000000', 'admin', '1990-01-01', NULL, 1, 'active'),
+(8, 'Sadia Akter', 'sadia.patient@gmail.com', 'Sadia@123', '01710000005', '01710000005', 'patient', '2001-11-03', NULL, 1, 'active'),
+(9, 'Dr. Nusrat Jahan', 'nusrat.doctor@gmail.com', 'Doctor@123', '01710000006', '01710000006', 'doctor', '1985-09-10', NULL, 1, 'active'),
+(10, 'Dr. Pending Doctor', 'pending.doctor@gmail.com', 'Doctor@123', '01710000007', '01710000007', 'doctor', '1992-12-12', NULL, 1, 'pending'),
+(11, 'Old Patient', 'old.patient@gmail.com', 'Old@123', '01710000008', '01710000008', 'patient', '1999-04-09', NULL, 0, 'inactive'),
+(12, 'Mahir', 'mahir.inactive@gmail.com', 'Mahir345@', '01822222222', '01822222222', 'receptionist', '2000-01-01', NULL, 0, 'inactive');
 
 CREATE TABLE `patients` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -63,7 +68,9 @@ INSERT INTO `patients`
 (`id`, `user_id`, `date_of_birth`, `blood_group`, `gender`, `address`, `emergency_contact`, `emergency_contact_name`, `emergency_contact_phone`, `medical_history_notes`)
 VALUES
 (1, 3, '2005-05-05', 'O+', 'Male', 'Dhaka, Bangladesh', '01711111111', 'Father', '01711111111', 'No major medical history.'),
-(2, 4, '2006-02-12', 'B+', 'Male', 'Khulna, Bangladesh', '01822222222', 'Brother', '01822222222', 'Has mild allergy problem.');
+(2, 4, '2006-02-12', 'B+', 'Male', 'Khulna, Bangladesh', '01822222222', 'Brother', '01822222222', 'Has mild allergy problem.'),
+(3, 8, '2001-11-03', 'A+', 'Female', 'Chattogram, Bangladesh', '01933333333', 'Mother', '01933333333', 'Diabetes family history.'),
+(4, 11, '1999-04-09', 'AB+', 'Male', 'Sylhet, Bangladesh', '01644444444', 'Sister', '01644444444', 'Inactive sample patient account.');
 
 CREATE TABLE `specializations` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -81,7 +88,9 @@ VALUES
 (1, 'General Physician', 'General medicine and primary healthcare', 'active'),
 (2, 'Cardiology', 'Heart and cardiovascular treatment', 'active'),
 (3, 'Neurology', 'Brain and nervous system treatment', 'active'),
-(4, 'Dermatology', 'Skin, hair, and nail treatment', 'active');
+(4, 'Dermatology', 'Skin, hair, and nail treatment', 'active'),
+(5, 'Orthopedics', 'Bone and joint treatment', 'active'),
+(6, 'Pediatrics', 'Child healthcare', 'active');
 
 CREATE TABLE `doctors` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -110,7 +119,9 @@ INSERT INTO `doctors`
 (`id`, `user_id`, `specialization_id`, `specialization`, `bio`, `consultation_fee`, `photo_path`, `license_number`, `experience_years`, `is_approved`, `status`)
 VALUES
 (1, 5, 1, 'General Physician', 'Experienced general physician providing primary healthcare and regular consultation.', 500.00, NULL, 'BMDC-2026-99A', 5, 1, 'approved'),
-(2, 6, 2, 'Cardiology', 'Experienced cardiologist for heart and blood pressure related treatment.', 800.00, NULL, 'BMDC-2026-88B', 8, 1, 'approved');
+(2, 6, 2, 'Cardiology', 'Experienced cardiologist for heart and blood pressure related treatment.', 800.00, NULL, 'BMDC-2026-88B', 8, 1, 'approved'),
+(3, 9, 4, 'Dermatology', 'Skin and hair specialist with modern dermatology experience.', 700.00, NULL, 'BMDC-2026-77C', 6, 1, 'approved'),
+(4, 10, 3, 'Neurology', 'Pending doctor profile for admin approval testing.', 900.00, NULL, 'BMDC-2026-66D', 3, 0, 'pending');
 
 CREATE TABLE `doctor_availability` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -143,7 +154,14 @@ VALUES
 (2, 'Tuesday', '15:00:00', '18:00:00', 30, 1),
 (2, 'Wednesday', '15:00:00', '18:00:00', 30, 1),
 (2, 'Thursday', '15:00:00', '18:00:00', 30, 1),
-(2, 'Friday', '15:00:00', '18:00:00', 30, 1);
+(2, 'Friday', '15:00:00', '18:00:00', 30, 1),
+(3, 'Saturday', '09:00:00', '12:00:00', 20, 1),
+(3, 'Sunday', '09:00:00', '12:00:00', 20, 1),
+(3, 'Monday', '09:00:00', '12:00:00', 20, 1),
+(3, 'Tuesday', '09:00:00', '12:00:00', 20, 1),
+(3, 'Wednesday', '09:00:00', '12:00:00', 20, 1),
+(3, 'Thursday', '09:00:00', '12:00:00', 20, 1),
+(3, 'Friday', '09:00:00', '12:00:00', 20, 0);
 
 CREATE TABLE `leave_dates` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -161,7 +179,8 @@ INSERT INTO `leave_dates`
 (`id`, `doctor_id`, `leave_date`, `reason`)
 VALUES
 (1, 1, DATE_ADD(CURDATE(), INTERVAL 5 DAY), 'Personal leave'),
-(2, 2, DATE_ADD(CURDATE(), INTERVAL 6 DAY), 'Medical conference');
+(2, 2, DATE_ADD(CURDATE(), INTERVAL 6 DAY), 'Medical conference'),
+(3, 3, DATE_ADD(CURDATE(), INTERVAL 4 DAY), 'Family emergency');
 
 CREATE TABLE `dependents` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -180,7 +199,8 @@ INSERT INTO `dependents`
 (`id`, `primary_patient_id`, `name`, `date_of_birth`, `relationship`, `blood_group`)
 VALUES
 (1, 1, 'Arafat Tajwar', '2015-01-01', 'Brother', 'O+'),
-(2, 2, 'Nabila Hossain', '2017-03-15', 'Sister', 'B+');
+(2, 2, 'Nabila Hossain', '2017-03-15', 'Sister', 'B+'),
+(3, 3, 'Samia Akter', '2018-07-21', 'Daughter', 'A+');
 
 CREATE TABLE `appointments` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -218,7 +238,13 @@ VALUES
 (3, 1, 1, 1, CURDATE(), '10:30:00', 'Dependent consultation', 'checked_in', 'receptionist', NOW()),
 (4, 2, 2, 2, CURDATE(), '15:30:00', 'Follow-up consultation', 'completed', 'receptionist', NOW()),
 (5, 1, NULL, 1, DATE_ADD(CURDATE(), INTERVAL 1 DAY), '11:00:00', 'Regular checkup', 'pending', 'patient', NULL),
-(6, 2, NULL, 2, DATE_ADD(CURDATE(), INTERVAL 1 DAY), '16:00:00', 'Heart consultation', 'confirmed', 'patient', NULL);
+(6, 2, NULL, 2, DATE_ADD(CURDATE(), INTERVAL 1 DAY), '16:00:00', 'Heart consultation', 'confirmed', 'patient', NULL),
+(7, 3, NULL, 3, CURDATE(), '09:00:00', 'Skin allergy consultation', 'completed', 'patient', NOW()),
+(8, 3, 3, 1, DATE_SUB(CURDATE(), INTERVAL 3 DAY), '12:00:00', 'Child fever consultation', 'completed', 'receptionist', DATE_SUB(NOW(), INTERVAL 3 DAY)),
+(9, 1, NULL, 2, DATE_SUB(CURDATE(), INTERVAL 2 DAY), '16:30:00', 'Blood pressure follow-up', 'cancelled', 'patient', NULL),
+(10, 2, NULL, 3, DATE_ADD(CURDATE(), INTERVAL 2 DAY), '09:40:00', 'Dermatology follow-up', 'pending', 'patient', NULL),
+(11, 3, NULL, 1, DATE_ADD(CURDATE(), INTERVAL 3 DAY), '13:00:00', 'General consultation', 'confirmed', 'receptionist', NULL),
+(12, 1, NULL, 3, DATE_SUB(CURDATE(), INTERVAL 1 DAY), '09:20:00', 'Missed skin checkup', 'no_show', 'patient', NULL);
 
 CREATE TABLE `consultation_notes` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -248,7 +274,9 @@ INSERT INTO `consultation_notes`
 (`id`, `appointment_id`, `doctor_id`, `patient_id`, `symptoms`, `diagnosis`, `prescription`, `follow_up_date`)
 VALUES
 (1, 4, 2, 2, 'Chest discomfort', 'Mild blood pressure issue', 'Take medicine after meal and avoid oily food', DATE_ADD(CURDATE(), INTERVAL 7 DAY)),
-(2, 3, 1, 1, 'Fever and headache', 'Seasonal flu', 'Paracetamol 500mg twice daily for 3 days', DATE_ADD(CURDATE(), INTERVAL 5 DAY));
+(2, 3, 1, 1, 'Fever and headache', 'Seasonal flu', 'Paracetamol 500mg twice daily for 3 days', DATE_ADD(CURDATE(), INTERVAL 5 DAY)),
+(3, 7, 3, 3, 'Skin rash and itching', 'Allergic dermatitis', 'Use prescribed cream twice daily', DATE_ADD(CURDATE(), INTERVAL 10 DAY)),
+(4, 8, 1, 3, 'Child fever', 'Viral fever', 'Paracetamol syrup and rest', DATE_ADD(CURDATE(), INTERVAL 6 DAY));
 
 CREATE TABLE `billing` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -278,7 +306,13 @@ VALUES
 (3, 3, 1, 500.00, NULL, 'pending', NULL),
 (4, 4, 2, 800.00, 'cash', 'paid', NOW()),
 (5, 5, 1, 500.00, NULL, 'pending', NULL),
-(6, 6, 2, 800.00, NULL, 'pending', NULL);
+(6, 6, 2, 800.00, NULL, 'pending', NULL),
+(7, 7, 3, 700.00, 'bkash', 'paid', NOW()),
+(8, 8, 3, 500.00, 'card', 'paid', DATE_SUB(NOW(), INTERVAL 3 DAY)),
+(9, 9, 1, 800.00, NULL, 'pending', NULL),
+(10, 10, 2, 700.00, NULL, 'pending', NULL),
+(11, 11, 3, 500.00, NULL, 'pending', NULL),
+(12, 12, 1, 700.00, NULL, 'pending', NULL);
 
 CREATE TABLE `doctor_reviews` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -307,7 +341,9 @@ INSERT INTO `doctor_reviews`
 (`id`, `appointment_id`, `patient_id`, `doctor_id`, `rating`, `review_text`)
 VALUES
 (1, 4, 2, 2, 5, 'Doctor was helpful and professional.'),
-(2, 3, 1, 1, 4, 'Good consultation and clear explanation.');
+(2, 3, 1, 1, 4, 'Good consultation and clear explanation.'),
+(3, 7, 3, 3, 5, 'Skin treatment was very effective.'),
+(4, 8, 3, 1, 5, 'Very caring and quick service.');
 
 CREATE TABLE `announcements` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -326,7 +362,9 @@ INSERT INTO `announcements`
 (`id`, `author_id`, `title`, `body`, `target_role`)
 VALUES
 (1, 7, 'Welcome to CareConnect', 'Patients can now browse doctors and book appointments online.', 'patient'),
-(2, 7, 'Reception Notice', 'Receptionists should check today schedule and pending bills regularly.', 'receptionist');
+(2, 7, 'Reception Notice', 'Receptionists should check today schedule and pending bills regularly.', 'receptionist'),
+(3, 7, 'Doctor Meeting', 'All doctors are requested to update their availability every week.', 'doctor'),
+(4, 7, 'Hospital Notice', 'Please arrive 15 minutes before your appointment time.', 'all');
 
 CREATE TABLE `appointment_policies` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -362,7 +400,8 @@ INSERT INTO `patient_complaints`
 (`id`, `patient_id`, `subject`, `message`, `status`, `admin_response`, `resolved_at`)
 VALUES
 (1, 1, 'Long waiting time', 'I had to wait longer than expected.', 'open', NULL, NULL),
-(2, 2, 'Payment issue', 'I need help with my billing record.', 'resolved', 'Issue checked and resolved.', NOW());
+(2, 2, 'Payment issue', 'I need help with my billing record.', 'resolved', 'Issue checked and resolved.', NOW()),
+(3, 3, 'Doctor availability', 'I could not find a suitable slot.', 'open', NULL, NULL);
 
 CREATE TABLE `activity_logs` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -382,7 +421,9 @@ INSERT INTO `activity_logs`
 (`id`, `user_id`, `role`, `action`, `details`)
 VALUES
 (1, 7, 'admin', 'Database initialized', 'Hospital system database created with seed data.'),
-(2, 1, 'receptionist', 'Receptionist dashboard accessed', 'Mahir accessed receptionist dashboard.');
+(2, 1, 'receptionist', 'Receptionist dashboard accessed', 'Mahir accessed receptionist dashboard.'),
+(3, 5, 'doctor', 'Doctor dashboard accessed', 'Doctor checked appointment schedule.'),
+(4, 3, 'patient', 'Patient appointment viewed', 'Patient viewed upcoming appointment list.');
 
 CREATE TABLE `receptionist_logs` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -396,7 +437,9 @@ INSERT INTO `receptionist_logs`
 (`id`, `receptionist_name`, `action_performed`)
 VALUES
 (1, 'Mahir', 'Checked receptionist dashboard.'),
-(2, 'Mahir', 'Processed sample front desk operation.');
+(2, 'Mahir', 'Processed sample front desk operation.'),
+(3, 'Mahir', 'Booked walk-in appointment for sample patient.'),
+(4, 'Mahir', 'Processed pending bill sample.');
 
 SET FOREIGN_KEY_CHECKS = 1;
 
