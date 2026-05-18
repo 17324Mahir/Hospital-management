@@ -1,12 +1,9 @@
 <?php
-
 class DoctorModel {
     private $conn;
-
-    public function __construct($conn) {
+public function __construct($conn) {
         $this->conn = $conn;
     }
-
     public function getDoctorByUserId($user_id) {
         $sql = "SELECT 
                     d.id AS doctor_id,
@@ -126,8 +123,8 @@ class DoctorModel {
     $bio,
     $consultation_fee,
     $license_number,
-    $experience_years
-) {
+    $experience_years) 
+    {
     $this->conn->begin_transaction();
 
     try {
