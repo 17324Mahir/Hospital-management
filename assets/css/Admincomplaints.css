@@ -1,0 +1,153 @@
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7f6;
+            margin: 0;
+        }
+
+        .navbar {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #ff7675;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .top-section {
+            border-left: 5px solid #e74c3c;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #7f8c8d;
+            color: white;
+            padding: 9px 13px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .respond-btn {
+            background: #3498db;
+            margin-bottom: 0;
+            padding: 7px 12px;
+            font-size: 13px;
+        }
+
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .search-box {
+            margin-top: 15px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        .complaint-card {
+            background: #f8f9fa;
+            border-left: 5px solid #e74c3c;
+            padding: 18px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .complaint-card.resolved-card {
+            border-left-color: #27ae60;
+        }
+
+        .complaint-card h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        .meta {
+            color: #7f8c8d;
+            font-size: 13px;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .message-box {
+            background: white;
+            border: 1px solid #eee;
+            padding: 12px;
+            border-radius: 6px;
+            white-space: pre-line;
+            line-height: 1.6;
+            margin-top: 8px;
+        }
+
+        .badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .open {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .resolved {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 35px;
+            color: #95a5a6;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    

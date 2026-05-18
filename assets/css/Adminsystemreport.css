@@ -1,0 +1,190 @@
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7f6;
+            margin: 0;
+        }
+
+        .navbar {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #ff7675;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1250px;
+            margin: auto;
+            padding: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .top-section {
+            border-left: 5px solid #34495e;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #7f8c8d;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .print-btn {
+            background: #34495e;
+            margin-left: 8px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+            vertical-align: top;
+        }
+
+        th {
+            color: #7f8c8d;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        .status-pill, .badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .confirmed {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .checked_in {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .completed {
+            background: #dff9fb;
+            color: #130f40;
+        }
+
+        .cancelled {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .no_show {
+            background: #f5c6cb;
+            color: #721c24;
+        }
+
+        .admin {
+            background: #fdecea;
+            color: #922b21;
+        }
+
+        .doctor {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .patient {
+            background: #dff9fb;
+            color: #130f40;
+        }
+
+        .receptionist {
+            background: #efe2ff;
+            color: #4a235a;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 30px;
+            color: #95a5a6;
+        }
+
+        .small {
+            color: #7f8c8d;
+            font-size: 12px;
+        }
+
+        @media (max-width: 900px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+
+        @media print {
+            .navbar, .btn-area {
+                display: none;
+            }
+
+            body {
+                background: white;
+            }
+
+            .container {
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    
