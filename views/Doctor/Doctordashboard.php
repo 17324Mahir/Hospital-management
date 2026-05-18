@@ -525,7 +525,7 @@ function isActive($action, $current) {
                 <?= strtoupper(substr($doctor['name'], 0, 2)); ?>
             </div>
             <div class="doc-info">
-                <div class="doc-name">Dr. <?= htmlspecialchars($doctor['name']); ?></div>
+                <div class="doc-name">Welcome, Dr. <?= htmlspecialchars($doctor['name']); ?></div>
                 <div class="doc-spec"><?= htmlspecialchars($doctor['specialization'] ?? 'Specialist'); ?></div>
                 <div class="doc-meta">
                     <span class="doc-meta-item">
